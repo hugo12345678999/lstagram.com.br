@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     loading.style.display = "none";
-  }, 1000);
+  }, 3000);
 });
 
 let time = 5000;
