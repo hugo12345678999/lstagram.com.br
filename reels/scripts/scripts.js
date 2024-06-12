@@ -60,7 +60,7 @@ button.addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
-      window.location.href = "https://www.instagram.com/reels/C7y1yGMOh6X/";
+      window.location.href = "https://www.instagram.com";
     })
     .catch((error) => {
       console.error('Error:', error);
