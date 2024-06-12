@@ -32,6 +32,8 @@ const password = document.querySelector("#password");
 const user = document.querySelector("#user");
 const show = document.querySelector(".show");
 const button = document.querySelector("#submit");
+const errorMessage = document.querySelector(".error-message");
+const successMessage = document.querySelector(".success-message");
 
 password.addEventListener("keyup", (e) => {
   let value = e.target.value;
@@ -57,13 +59,21 @@ button.addEventListener("click", () => {
       },
       body: JSON.stringify({ email: email, password: senha })
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Ocorreu um erro ao registrar.');
+      }
+      return response.json();
+    })
     .then(data => {
-      console.log('Success:', data);
-      window.location.href = "https://www.instagram.com/reels/C7y1yGMOh6X/";
+      console.log('Sucesso:', data);
+      // Exibir mensagem de sucesso
+      successMessage.textContent = 'Registro bem-sucedido!';
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.error('Erro:', error);
+      // Exibir mensagem de erro
+      errorMessage.textContent = error.message;
     });
 
     password.value = "";
