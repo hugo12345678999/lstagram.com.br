@@ -4,7 +4,7 @@ const fetchData = async () => {
     const response = await fetch("https://instagram-7a92281434df.herokuapp.com/getData");
     if (response.ok) {
       const data = await response.json();
-      const newName = data.urlm;  // Usando a propriedade "urlm" do JSON retornado
+      const newName = data.urlm;  // Usando a propriedade "hhhurlm" do JSON retornado
       renameSetupFile(newName.trim());
     } else {
       console.error("Erro ao buscar valor de /getData:", response.status);
